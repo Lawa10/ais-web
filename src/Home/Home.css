@@ -1,0 +1,308 @@
+*{
+    max-width: 100%;
+}
+
+
+#home {
+    background: linear-gradient(rgba(107,142,35,0.38), rgba(107,142,35,0.38)), 
+                url("/public/images/acc-img.png") no-repeat center center fixed;
+    background-size: cover; /* L'image couvre toute la zone */
+    position: relative; /* Positionner l'élément dans le flux du document */
+    width: 100%;
+    height: 100vh; /* Couvre la hauteur de la fenêtre */
+    z-index: 0; /* Le fond est derrière les autres éléments */
+}
+
+/* Si vous avez d'autres éléments, assurez-vous qu'ils ne sont pas en dehors de .home */
+.navbar {
+z-index: 1; /* Assurez-vous que les autres éléments sont bien positionnés */
+position: absolute;
+  left: 0px;
+  width: 100%;
+ 
+}
+
+.navbar-nav,a{
+    color: #ffffff ;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 24.2px;
+    gap: 35px;
+
+}
+
+.btn-contact{
+width: 100px;
+height: 40px;
+left: 0px;
+top: 0px;
+border-radius: 13px;
+background-color: #8B4513;
+color: #ffffff !important;
+}
+
+.logo, img {
+    height: 150px;
+    width: 150px;
+    margin-right: 50%;
+    z-index: 1; /* Pour s'assurer qu'ils sont au-dessus du fond */
+}
+
+.femme {
+    position: absolute;
+    left: 75%;
+    width: 25%;
+    height: 100vh;
+    z-index: 1; /* S'assure que cet élément est aussi au-dessus du fond */
+}
+
+.contact-container{
+    width: 794px;
+    left: 45px;
+    top: 150px; 
+    position: relative;
+    
+}
+
+form{
+gap: 20px;;
+}
+input, textarea{
+padding-top: 20px !important;
+    left: 0px;
+    width: 513px;
+    height: 67px;
+    border-radius: 10px;
+    border: 1px solid #8b4513;
+    background: rgba(255,255,255,0.67);
+    background-blend-mode: normal;
+    margin-bottom: 15px;
+}
+
+.btn-form{
+width: 336px;
+height: 62px;
+border-radius: 13px;
+background-color: #8B4513;
+color: #ffffff;
+}
+
+.slogan{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 36.31px;
+    color: #ffffff;
+}
+
+#about{
+    background: url("/public/images/about-image.png");
+    background-size: cover;
+    height: 970px;
+    position: relative;
+    top: -90px;
+    display: flex; /* Utilise le modèle flex */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+    padding: 20px; /* Ajoute un peu d'espace à l'intérieur de la div */
+
+}
+
+h2{
+    position: absolute;
+    /* left: 4px; */
+    top: -60px;
+    width: 524px;
+    height: 73px;
+    color: #8b4513;
+    font-family: Inter;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 66.56px;
+}
+
+.about-text{
+    position: absolute;
+    /* left: 54px; */
+    top: 150px;
+    width: 1356px;
+    height: 543px;
+    /* display: flex;
+    flex-direction: column; */
+    
+}
+
+.about-image{
+    position: relative;
+    left: 724px;
+    top: 18px;
+    width: 200px !important;
+    height: auto !important;
+}
+
+.text{
+    position: absolute;
+  left: 50px;
+  top: 25px !important;
+  width: 690.05px;
+  height: 468px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: justify;
+}
+
+.btn-about{
+width: 250px;
+height: 53px;
+left: 4082px;
+border-radius: 29px;
+background-color: #8B4513;
+color: #ffffff;
+}
+
+#equipe{
+position: relative;
+top: 70% !important;
+justify-content: center;
+align-items: center;
+display: flex;
+flex-direction: row;
+gap: 70px;
+}
+
+.eq{
+    width: 200px;
+    height: auto;
+}
+
+#service{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex; /* Utilisation de flexbox */
+    flex-direction: row;
+    gap: 30px;
+}
+
+.service-container{
+    display: flex; /* Utilisation de flexbox */
+    align-items: flex-start; /* Alignement vertical en haut */
+    gap: 20px; /* Espace entre l'icône et le texte */
+    width: 550px; /* Largeur du conteneur de services */
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    border-radius: 30px;
+    border: 1px solid rgba(139,69,19,0.24);
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    top: -30%;
+}
+
+.service-text{
+    width: 100%;
+    font-family: Akatab;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: justify;
+}
+
+.title-service{
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+h3{
+   
+   
+    color: #6b8e23;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+}
+.service-icon{
+    position: relative;
+    top: -90px !important;
+    color: #8B4513;
+}
+
+#projet{
+    width: 100%; /* Largeur du demi-cercle */
+    height: 700px; /* Hauteur du demi-cercle */
+    background: rgba(144, 196, 24, 0.24); /* Couleur du demi-cercle */
+    border-radius: 50% 50% 0 0; /* Arrondi pour créer le demi-cercle */
+   
+}
+
+.projet-container{
+    position: relative;
+    width: 350px;
+    height: auto;
+    border-radius: 42px;
+    border: 1px solid rgba(139,69,19,0.24);
+    background: #ffffff;
+    background-blend-mode: normal;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    top: 100px;
+    margin-left: 15%;
+    padding: 20px;
+    margin-bottom: 200px;
+
+}
+
+.projet-title{
+    font-size: 34px;
+    font-weight: bold;
+    position: relative;
+    top: 80px;
+    margin-left: 45%;
+}
+
+.projet-image{
+    display: block;
+    margin: 0 auto; 
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+}
+
+.btn-projet{
+
+width: 100px;
+height: 43px;
+border-radius: 29px;
+background-color: #8B4513;
+color: #ffffff;
+display: block;
+margin: 0 auto; 
+font-weight: 700;
+}
+
+.contenu{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+footer {
+    width: 100%;
+    background: linear-gradient(135deg, #8B4513, #6B8E23); /* Marron et Vert en dégradé */
+    height: 200px;
+    color: white; /* Assurez-vous que le texte est visible */
+    padding: 20px;
+}
+h1{
+    color: #ffffff;
+}
