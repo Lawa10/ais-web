@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import './Home.css'
 import { motion } from "framer-motion";
-
+import {  useScroll, useTransform } from 'framer-motion';
 export default function Home() {
     const [color, setColor] = useState(false);
+    const { scrollY } = useScroll();
+ // Set up useScroll to track scroll progress
+ const { scrollYProgress } = useScroll();
 
+ // Transform scroll progress to desired values
+ const aboutOpacity = useTransform(scrollY, [0, 400], [0, 1]);
+//  const aboutTranslateY = useTransform(scrollY, [300, 800], [0, 0]);
+ const scale = useTransform(scrollY, [0, 400], [1, 1]);
     const changeColor = () => {
       if (window.scrollY >= 90) {  // Utiliser scrollY pour obtenir la position verticale
         setColor(true);
@@ -34,7 +41,7 @@ export default function Home() {
               <div className='logo' style={{marginRight: '600px'}}>
               <img src="./images/logo.png" alt="" />
             </div>
-          
+               
                  <li href="#">Accueil</li>
                 <li href="#">A Propos</li>
                 <li href="#">Services</li>
@@ -80,11 +87,18 @@ export default function Home() {
 
     </div>
 {/* a propos start */}
+<motion.div
+                   
+                    // style={{
+                    //   opacity: aboutOpacity,
+                    //   scale
+                    // }}
+                >
 <div id='about'>
 <div className='about-text'>
 
 <div >
-    <img src="./images/heureux.png" alt="" className='about-image'/>
+    <img src="./images/mains.jpg" alt="" className='about-image'/>
 </div>
 
 <div className='text'>
@@ -166,11 +180,21 @@ Decouvrer nos equipes
  </div>
 
  </motion.div>
-</div>
-{/* equipes end */}
+ {/* equipes end */}
 </div>
 
+</div>
+
+                </motion.div>
+
 {/* a propos end */}
+
+
+
+
+
+
+
 
 {/* service start */}
 
