@@ -9,7 +9,7 @@
     background-size: cover; /* L'image couvre toute la zone */
     position: relative; /* Positionner l'élément dans le flux du document */
     width: 100%;
-    height: 100vh; /* Couvre la hauteur de la fenêtre */
+    height: 110vh; /* Couvre la hauteur de la fenêtre */
     /* z-index: 0;  */
 }
 
@@ -63,7 +63,7 @@
 
 
 
-   .menu-bar-bg li {
+   .menu-bar-bg a {
     list-style: none;
     color: white;
     font-family: sans-serif;
@@ -76,7 +76,7 @@
 
   }
 
-  .menu-bar-bg li::before {
+  .menu-bar-bg a::before {
     content: "";
     position: absolute;
     top: 0;
@@ -86,6 +86,10 @@
     z-index: -1;
     transition: 0.2s;
     border-radius: 25px;
+  }
+
+  a{
+    color: black;
   }
 
   
@@ -101,14 +105,16 @@
     border-radius: 25px;
 
   } */
-   .menu-bar-bg li:hover::before {
+   .menu-bar-bg a:hover::before {
+    color: black;
+    font-weight: bold;
     background: linear-gradient(to bottom, #e8edec, #d2d1d3);
     box-shadow: 0px 3px 20px 0px black;
     transform: scale(1.2);
   }
   
   
-  .menu-bar li:hover, .menu-bar-bg li:hover {
+  .menu-bar a:hover, .menu-bar-bg li:hover {
     color: #6B8E23;
   }
   
@@ -140,7 +146,7 @@ color: #ffffff !important;
 .contact-container{
     width: 794px;
     left: 45px;
-    top: -30px !important; 
+    /* top: -10px !important;  */
     position: relative;
     
 }
@@ -167,6 +173,7 @@ height: 50px;
 border-radius: 13px;
 background-color: #8B4513;
 color: #ffffff;
+cursor: pointer;
 }
 .btn-form :hover{
    
@@ -186,7 +193,8 @@ h1{
 #about{
     background: url("/public/images/about-image.png");
     background-size: cover;
-    height: 970px;
+    /* height: 970px; */
+    height: 600px;
     position: relative;
     top: -90px;
     display: flex; /* Utilise le modèle flex */
@@ -223,7 +231,7 @@ h2{
 
 .about-image{
     position: relative;
-    left: 374px;
+    /* left: 374px; */
     top: 18px;
     width: 500px !important;
     height: 400px !important;
@@ -336,17 +344,17 @@ h3{
 
 .projet-container{
     position: relative;
-    width: 350px;
+    max-width: 300px; 
     height: auto;
     border-radius: 42px;
     border: 1px solid rgba(139,69,19,0.24);
     background: #ffffff;
     background-blend-mode: normal;
-    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.25);
     top: 100px;
-    margin-left: 15%;
     padding: 20px;
     margin-bottom: 200px;
+    box-sizing: border-box;
 
 }
 
@@ -378,11 +386,15 @@ margin: 0 auto;
 font-weight: 700;
 }
 
-.contenu{
+.contenu {
     display: flex;
-    flex-direction: row;
-    gap: 40px;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement si nécessaire */
+    text-align: center;
+    width: 100%;
 }
+
+
 
 footer {
     width: 100%;
@@ -401,17 +413,50 @@ button{
 
 }
 
+.info{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+    width: 300px;
+    height: 50px;
+    background-color: #ffffff;
+    color: #6B8E23;
+    gap: 20px;
+}
+
+h4{
+    font-size: 20px;
+}
+.info-container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+  .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;...');
+  }
+
 
 @media only screen and (max-width: 768px) {
+
+    .menu-bar {
+        flex-direction: column;
+      }
    *{
     max-width: 100% !important;
     margin: 0;
    }
-h1{
-    font-size: 25px;
+
+   
+
+.titre{
+    font-size: 35px !important;
 }
 .slogan{
-    font-size: 15px;
+    font-size: 20px;
 }
 .contact-container{
    
@@ -460,15 +505,22 @@ input, textarea{
      .about-text {
    margin-right: 90px;
     align-items: center;
-    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     /* padding: 10px; */
 }
 
         
-        
-.about-image {
-    display: none !important;
-}
+.about-image{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top: 750px;
+    margin-left: 15px;
+}  
+
+
   
         
         #equipe{
@@ -496,32 +548,22 @@ input, textarea{
             }
         
         #service{
-            width: 100%;
-            flex-wrap: wrap;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            display: flex;
-            gap: 50px;
-            position: relative;
-            top: 800px !important;
-            text-align: center; /* Align text in center */
            
+            top: 700px !important;
+            gap: 20px; /* Réduit l'écart entre les cartes */
+            padding: 10px;
         }
-        i{
-            display: none !important;
+        h4{
+            font-size: 10px;
         }
+     
         .service-container{
-            display: flex;
-            flex-direction: column; /* Stack content vertically within each service */
-            align-items: center; /* Center-align content in each service */
-            gap: 20px;
-            width: 85%; /* Ensure the service container spans the width */
-            justify-content: center;
-            position: relative;
-            top: 30% !important;
-            height: auto;
+            max-width: 90%;
+            gap: 30px;
         }
-        
+        .info {
+            gap: 0; /* Supprime l’espace entre les éléments sur mobile */
+        }
         .service-text{
             width: 100%;
             font-family: Akatab;
@@ -540,7 +582,7 @@ input, textarea{
     
         #projet{
             width: 100%; /* Largeur du demi-cercle */
-            height: 900px; /* Hauteur du demi-cercle */
+            height: 700px; /* Hauteur du demi-cercle */
             position: relative;
             top: 800px;
             display: flex;
@@ -548,21 +590,11 @@ input, textarea{
             /* margin-bottom: 20px !important; */
         }
         p{
-            font-size: 10px;
+            font-size: 20px;
         }
         .projet-container{
-            position: relative;
-            width: 200px;
-            height: auto;
-            border-radius: 42px;
-            border: 1px solid rgba(139,69,19,0.24);
-            background: #ffffff;
-            background-blend-mode: normal;
-            box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
-            top: 100px;
-            margin-left: 15%;
-            padding: 20px;
-            /* margin-bottom: 200px; */
+            width: 300px;
+
         
         }
         
@@ -571,7 +603,6 @@ input, textarea{
             font-weight: bold;
             position: relative;
             top: 80px;
-            margin-left: 30%;
         }
         
         .projet-image{
