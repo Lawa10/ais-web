@@ -1,13 +1,21 @@
 import React, { useState, useEffect, handleSubmit, handleChange } from 'react'
 import './Home.css'
 import { motion } from "framer-motion";
-// import emailjs from 'emailjs-com';
-import { NavLink } from 'react-router-dom';
+import emailjs from 'emailjs-com';
+import { Link } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+import { IoClose, IoMenu } from "react-icons/io5";
+
 
 export default function Home() {
 
-  
+  const [isOpen, setIsOpen] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+
+ 
+
     const [color, setColor] = useState(false);
+    
     const [formData, setFormData] = useState({
       email: '',
       numero: '', // Add numero to formData
@@ -48,61 +56,116 @@ export default function Home() {
       return () => window.removeEventListener('scroll', changeColor); // Nettoyage de l'event listener
     }, []);
     
-
-    
-   
-    
+    const toggleMenu = () => {
+      setShowMenu(!showMenu);
+    };
+  
+    const closeMenuOnMobile = () => {
+      if (window.innerWidth <= 1150) {
+        setShowMenu(false);
+      }
+    };
+  
     return (
+
       <div>
+        
         <div id='home'>
           <img src="./images/femme-tenant.png" alt="" className='femme' />
           
           {/* navbar start */}
-          <nav className="navbar navbar-expand-lg">
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div className={color ? 'menu-bar' : 'menu-bar-bg'}>
-          <div className="logo" style={{ marginRight: 'auto' }}>
-            <img src="./images/logo.png" alt="Logo" />
+          {/* <nav className={`navbar navbar-expand-lg ${isOpen && "open"}`}>
+           
+            
+           <div>
+             <div className={color ? 'menu-bar' : 'menu-bar-bg'}>
+             <div className='logo' style={{marginRight: '600px'}}>
+             <img src="./images/logo.png" alt="" />
+           </div>
+              
+                <a href="#home">Accueil</a>
+               <a href="#about">A Propos</a>
+               <a href="#service">Services</a>
+               <a href="#projet">Projet</a> 
+               <motion.div 
+                 whileHover={{ scale: 1.2 }}
+                 whileTap={{ scale: 0.9 }}
+                 transition={{ duration: 0.3 }}
+               >
+               <button className='btn-contact' to="#home">
+                   
+                   Contact
+                 </button>
+                 
+                 
+                
+               </motion.div>
+           </div>
+               
+             </div>
+         </nav> */}
+
+        
+         <header className={`navbar  ${isOpen && "open"}`}>
+      <nav   className={color ? 'menu-bar' : 'nav container'}>
+        
+        <NavLink to="/" className="nav__logo">
+          <img src="./images/logo.png" alt="" srcset="" />
+          
+        </NavLink>
+
+        <div
+          className={`nav__menu ${showMenu ? "show-menu" : ""}`}
+          id="nav-menu"
+        >
+          <br />
+          
+          <ul className="nav__list">
+  <a href="#home" className="nav__link" onClick={closeMenuOnMobile}>
+    Accueil
+  </a>
+  <a href="#about" className="nav__link" onClick={closeMenuOnMobile}>
+    A propos
+  </a>
+  <a href="#service" className="nav__link" onClick={closeMenuOnMobile}>
+    Services
+  </a>
+  <a href="#projet" className="nav__link" onClick={closeMenuOnMobile}>
+    Projet
+  </a>
+  <motion.div 
+    whileHover={{ scale: 1.2 }}
+    whileTap={{ scale: 0.9 }}
+    transition={{ duration: 0.3 }}>
+    <a href="">
+      <button className='btn-contact'>
+      Contact
+    </button>
+    </a>
+    
+  </motion.div>
+</ul>
+
+          <div className="nav__close" id="nav-close" onClick={toggleMenu}>
+            <IoClose />
           </div>
-          <NavLink to="/" className="nav-link" activeClassName="active" exact>
-            Accueil
-          </NavLink>
-          <NavLink to="/about" className="nav-link" activeClassName="active">
-            A Propos
-          </NavLink>
-          <NavLink to="/services" className="nav-link" activeClassName="active">
-            Services
-          </NavLink>
-          <NavLink to="/projet" className="nav-link" activeClassName="active">
-            Projet
-          </NavLink>
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.3 }}
-          >
-            <NavLink to="/contact" className="btn-contact" activeClassName="active">
-              Contact
-            </NavLink>
-          </motion.div>
         </div>
-      </div>
-    </nav>
-          {/* navbar end */}
+
+        <div className="nav__toggle" id="nav-toggle" onClick={toggleMenu}>
+          <IoMenu />
+        </div>
+      </nav>
+         </header>
+
+       
+
+
+
+
+          {/* navbar end */} 
 {/* contact start */}
 <div className='contact-container'>
-<h1 className='titre'>Agriculture Information Système</h1>
+<h1 className='titre'>Agrobusiness Information System</h1>
 <p className='slogan'>Des solutions numériques pour tous les secteurs.</p>
 
 <form onSubmit={handleSubmit}>
@@ -150,10 +213,10 @@ export default function Home() {
                     //   scale
                     // }}
                 >
-<div id='about'>
+<div id='about' >
 <div className='about-text'>
 
-<div >
+<div className='am' >
     <img src="./images/mains.jpg" alt="" className='about-image'/>
 </div>
 
@@ -165,80 +228,13 @@ A.I.S <b>( Agrobusiness Information System )</b>est une entreprise innovante sp�
 
 <br />
 <br />
-{/* <motion.div
- whileHover={{ scale: 1.2 }}  // Zoom à 120% lors du survol
- whileTap={{ scale: 0.9 }}    // Réduction à 90% lors du clic
- transition={{ duration: 0.3 }}  // Durée de l'animation
- 
->
-<button className='btn-about'>
-Decouvrer nos equipes 
-</button>
-</motion.div> */}
+
 
 </p>
 </div>
 </div>
 
-{/* equipes start */}
-{/* <div id='equipe'>
 
-<motion.div
- whileHover={{ scale: 1.2 }}  // Zoom à 120% lors du survol
- whileTap={{ scale: 0.9 }}    // Réduction à 90% lors du clic
- transition={{ duration: 0.3 }}  // Durée de l'animation
- 
->
-<div className='equipe-div'>
-    <img src="./images/Group 8.png" alt=""  className='eq'/>
-    <h3>Nom</h3>
-    <p>Proffesion</p>
- </div>
-</motion.div>
- 
-<motion.div
- whileHover={{ scale: 1.2 }}  // Zoom à 120% lors du survol
- whileTap={{ scale: 0.9 }}    // Réduction à 90% lors du clic
- transition={{ duration: 0.3 }}  // Durée de l'animation
- 
->
-
- <div className='equipe-div'>
-    <img src="./images/Group 8.png" alt=""  className='eq'/>
-    <h3>Nom</h3>
-    <p>Proffesion</p>
- </div>
- </motion.div>
-
- <motion.div
- whileHover={{ scale: 1.2 }}  // Zoom à 120% lors du survol
- whileTap={{ scale: 0.9 }}    // Réduction à 90% lors du clic
- transition={{ duration: 0.3 }}  // Durée de l'animation
- 
->
-<div className='equipe-div'>
-    <img src="./images/Group 8.png" alt=""  className='eq'/>
-    <h3>Nom</h3>
-    <p>Proffesion</p>
- </div>
-
-</motion.div>
- 
-<motion.div
- whileHover={{ scale: 1.2 }}  // Zoom à 120% lors du survol
- whileTap={{ scale: 0.9 }}    // Réduction à 90% lors du clic
- transition={{ duration: 0.3 }}  // Durée de l'animation
- 
->
- <div className='equipe-div'>
-    <img src="./images/Group 8.png" alt=""  className='eq'/>
-    <h3>Nom</h3>
-    <p>Proffesion</p>
- </div>
-
- </motion.div>
-</div> */}
- {/* equipes end */}
 
 </div>
 
@@ -251,7 +247,7 @@ Decouvrer nos equipes
 
 {/* service start */}
 
-<div id='service'>
+<div id='service' className='d-flex p-2'>
     <h2 className='title-service'>Nos Services</h2>
 
     {/* card 1 */}
@@ -359,7 +355,7 @@ Koumi est une application facilitant la mise en relation entre les différents a
  transition={{ duration: 0.3 }}  // Durée de l'animation
  
 >
-<button className='btn-projet'>Voir plus</button>
+ <Link to='https://koumi.info/' return="none"> <button className='btn-projet'>Voir plus</button> </Link>
 
 </motion.div>
 
